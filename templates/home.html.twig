@@ -7,7 +7,14 @@
    <title>Mon application</title>
 </head>
 <body>
-   <h1>Bonjour à tous</h1>
-   <p>Comment allez-vous ?</p>
+   <h1>{{ title }}</h1>
+   <p>Comment allez-vous ? </p>
+   {% if age >= 18 %}
+      <p> Vous êtes un adulte</p>
+   {% elseif age >= 12 %}
+      <p> vous etes un ado</p>
+   {% else %}
+      <P> Vous etes un enfant</P>
+   {% endif %}
 </body>
 </html>
