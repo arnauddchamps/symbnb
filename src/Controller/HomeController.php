@@ -4,24 +4,19 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class HomeController {
+class HomeController extends Controller {
 
    /**
     * @Route("/", name="homepage")
     */
    public function home(){
-      return new Response("
-         <html>
-         
-            <head>
-               <title>Mon application</title>
-            </head>
-            <body>
-               <h1>Bonjour à tous</h1>
-            </body>
-         </html>
-      ");
+   
+      return $this->render(
+         'home.html.twig'
+      );
+   
    }
 }
 
