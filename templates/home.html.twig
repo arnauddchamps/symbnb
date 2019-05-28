@@ -6,36 +6,36 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Mon application</title>
 </head>
-<body>
-   <h1>{{ title }}</h1>
-   <p>Comment allez-vous ? </p>
+   <body>
+      <h1>{{ title | upper}}</h1>
+      <p>Comment allez-vous ? </p>
 
-   {#
-      {% if age >= 18 %}
-         <p> Vous êtes un adulte</p>
-      {% elseif age >= 12 %}
-         <p> vous etes un ado</p>
-      {% else %}
-         <P> Vous etes un enfant</P>
-      {% endif %}
-   #}
-   
+      {#
+         {% if age >= 18 %}
+            <p> Vous êtes un adulte</p>
+         {% elseif age >= 12 %}
+            <p> vous etes un ado</p>
+         {% else %}
+            <P> Vous etes un enfant</P>
+         {% endif %}
+      #}
+      
 
-   <ul>
-      {% for compteur in 0..10 %}
-         <li>{{compteur}}</li>
+      <ul>
+         {% for compteur in 0..10 %}
+            <li>{{compteur}}</li>
+         {% endfor %}
+      </ul>
+
+      {% for prenom, age in tableau %}
+         {% if loop.first %} 
+            <strong>{{prenom}} a {{ age }} ans </strong>
+         {% elseif  loop.last %}
+            <em>{{prenom}} a {{age}} ans</em>
+         {% else %}
+            <p>{{ prenom}} a {{ age }} ans</p>
+         {% endif %}
       {% endfor %}
-   </ul>
 
-   {% for prenom, age in tableau %}
-      {% if loop.first %}
-         <strong>{{prenom}} a {{ age }} ans </strong>
-      {% elseif  loop.last %}
-         <em>{{prenom}} a {{age}} ans</em>
-      {% else %}
-         <p>{{ prenom}} a {{ age }} ans</p>
-      {% endif %}
-   {% endfor %}
-
-</body>
+   </body>
 </html>
