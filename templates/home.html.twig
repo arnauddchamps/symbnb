@@ -10,6 +10,8 @@
       <h1>{{ title | upper}}</h1>
       <p>Comment allez-vous ? </p>
 
+      <a href="{{ path('hello', {'prenom': 'Lior', 'age': 31}) }}">Allez voir Hello</a>
+
       {#
          {% if age >= 18 %}
             <p> Vous êtes un adulte</p>

@@ -9,9 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller {
 
    /**
-    * @Route("/hello/{prenom}/age/{age}", name="hello")
-    * @Route("/hello")
-    * @Route("/hello/{prenom}")
+    * @Route("/bonjour/{prenom}/age/{age}", name="hello")
+    * @Route("/salut", name="hello_base")
+    * @Route("/bonjour/{prenom}", name="hello_prenom")
     * Montre la page qui dit bonjour
     * 
     * @return void
