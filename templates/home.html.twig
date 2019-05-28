@@ -16,5 +16,22 @@
    {% else %}
       <P> Vous etes un enfant</P>
    {% endif %}
+
+   <ul>
+      {% for compteur in 0..10 %}
+         <li>{{compteur}}</li>
+      {% endfor %}
+   </ul>
+
+   {% for prenom, age in tableau %}
+      {% if loop.first %}
+         <strong>{{prenom}} a {{ age }} ans </strong>
+      {% elseif  loop.last %}
+         <em>{{prenom}} a {{age}} ans</em>
+      {% else %}
+         <p>{{ prenom}} a {{ age }} ans</p>
+      {% endif %}
+   {% endfor %}
+
 </body>
 </html>
