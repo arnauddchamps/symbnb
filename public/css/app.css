@@ -1,0 +1,14 @@
+div.container{
+   margin-top: 20px;
+}
+
+div.ad-headder{
+   padding: 2em;
+   background-size: cover;
+   background-position: center;
+}
+
+div.ad-headder h1, div.add-headder p {
+   color: white;
+   text-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
