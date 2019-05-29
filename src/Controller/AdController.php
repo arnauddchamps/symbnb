@@ -6,7 +6,6 @@ use App\Entity\Ad;
 use App\Repository\AdRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdController extends AbstractController
@@ -16,8 +15,6 @@ class AdController extends AbstractController
      */
     public function index(AdRepository $repo)
     {
-        dump($session);
-
         $ads = $repo->findAll();
 
         return $this->render('ad/index.html.twig', [
