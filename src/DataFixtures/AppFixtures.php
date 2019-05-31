@@ -31,14 +31,14 @@ class AppFixtures extends Fixture
                 ->setRooms(mt_rand(1,5));
 
 
-            for($j =1; $j <= mt_rand(2, 5); $j++){
-                $image = new Image();
-
-                $image->setUrl($faker->imageUrl())
-                        ->setCaption($faker->sentence())
-                        ->setAd($ad);
-                        
-                $manager->persist($image);
+                for($j=1; $j<=(mt_rand(2, 5)); $j++){
+                    $image = new Image();
+                    $image->setUrl($faker->imageUrl(1000, 350))
+                          ->setCaption($faker->sentence())
+                          ->setAd($ad);
+                    $manager->persist($image);
+                          
+                
             }
     
             $manager->persist($ad);
