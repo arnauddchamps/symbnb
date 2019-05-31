@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
  * @ORM\HasLifecycleCallbacks
@@ -22,6 +24,7 @@ class Ad
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=10, max=255, minMessage="Le titre doit faire plus de 10 caractères", maxMessage="Le titre est trop long")
      */
     private $title;
 
@@ -37,16 +40,19 @@ class Ad
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(min=20, minMessage="Votre intro doit etre sup à 20 caractères")
      */
     private $introduction;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(min=100, minMessage="Votre description doit etre sup à 100 caractères")
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Asserts\Url()
      */
     private $coverImage;
 
