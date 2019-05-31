@@ -68,7 +68,8 @@ class AdType extends AbstractType
             ->add('images',
                 CollectionType::class,
                 [ 
-                    'entry_type' => ImageType::class
+                    'entry_type' => ImageType::class,
+                    'allow_add' => true
                 ]
             )
         ;
