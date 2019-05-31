@@ -8,12 +8,8 @@
       <h1>Créer une nouvelle annonce</h1>
 
       {{ form_start(form) }}
-      
-      <div class="form-group">
-         {{form_label(form.title)}}
-         {{form_widget(form.title, {'attr': {'class': 'form-control', 'placeholder': "Titre de l'annonce"}})}}
-      </div>
 
+      {{ form_widget(form)}}
 
       <button type="submit" class="btn btn-primary">Créer la nouvelle annonce</button>
 
