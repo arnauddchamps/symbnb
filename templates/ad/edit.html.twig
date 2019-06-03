@@ -81,6 +81,14 @@
       });
    }
 
+   function updateCounter() {
+      // Ajout d'un "+" pour interpreter comme un nombre
+      const count = +$('#ad_images div.form-group').length;
+
+      $('#widgets-counter').val(count);
+   }
+
+   updateCounter();
    handleDeleteButtons();
 
 </script>
