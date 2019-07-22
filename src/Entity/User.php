@@ -87,7 +87,8 @@ class User implements UserInterface
         return "{$this->firstName} {$this->lastName}";
     }
 
-     /**
+    
+    /**
      * Permet d'initialiser le slug !
      * 
      * @ORM\PrePersist
