@@ -54,7 +54,7 @@ class Ad
      * @ORM\Column(type="text")
      * @Assert\Length(min=100, minMessage="Votre description doit etre sup à 100 caractères")
      */
-    private $content;
+    private $description;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -151,14 +151,14 @@ class Ad
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getDescription(): ?string
     {
-        return $this->content;
+        return $this->description;
     }
 
-    public function setContent(string $content): self
+    public function setDescription(string $description): self
     {
-        $this->content = $content;
+        $this->description = $description;
 
         return $this;
     }
