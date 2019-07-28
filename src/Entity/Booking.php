@@ -72,6 +72,47 @@ class Booking
         }
     }
 
+    public function isBookableDates() {
+        // 1) il faut connaitre les dates impossibles pr l'annonce
+        $notAvailableDays = $this->ad->getNotAvailableDays();
+        // 2) il faut comparer les dates choisies avec les dates impossibles
+        $bookingDays = $this->getDays();
+
+        $formatDay = function($day){
+            return $day->format('Y-m-d');
+        };
+
+        $days = array_map($formatDay, $bookingDays);
+
+        $notAvailable = array_map($formatDay, $notAvailableDays);
+
+        foreach($days as $day){
+            if(array_search($day, $notAvailable) !== false) return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Récupérer un array des journées qui correspondent à ma résa
+     * 
+     * @return array un tableau d'objets Datetime représentant les jours de la résa
+     */
+    public function getDays() {
+
+        $resultat = range(
+            $this->startDate->getTimestamp(),
+            $this->endDate->getTimestamp(),
+            24 * 60 * 60
+        );
+
+        $days = array_map(function($dayTimestamp){
+            return new \DateTime(date('Y-m-d', $dayTimestamp));
+        }, $resultat);
+        return $days;
+
+    }
+
     public function getDuration(){
         $diff = $this->endDate->diff($this->startDate);
         return $diff->days;
