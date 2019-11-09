@@ -63,10 +63,11 @@
                   <div class="row align-items-center">
                      <div class="col">
                         Note globale donnée par nos voyageurs <br>
-                        <small>Cette moyenne et calculée sur {{ad.comments|length}} avis !</small>
                      </div>
                      <div class="col">
                         {% include "partials/rating.html.twig" with {'rating': ad.avgRatings} %}
+                        <br>
+                        <small>(calculée sur {{ad.comments|length}} avis !)</small>
                      </div>
                   </div>
                </h4>
