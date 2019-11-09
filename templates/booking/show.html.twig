@@ -37,9 +37,9 @@
                   <dt class="col-md-4">Nombre de nuits</dt>
                   <dd class="col-md-8">{{booking.duration | length}}</dd>
                   <dt class="col-md-4">Montant total</dt>
-                  <dd class="col-md-8">{{booking.amount}}</dd>
+                  <dd class="col-md-8">{{booking.amount}} €</dd>
                   <dt class="col-md-4">Commentaire<dt>
-                  <dd class="col-md-8">{{booking.comment}}</dd>
+                  <dd class="col-md-8">{{booking.comment|default("Aucun commentaire")}}</dd>
                </dl>
 
                <hr>
@@ -60,6 +60,24 @@
 
                      <a href="{{path("user_show", {'slug': author.slug})}}" class="btn btn-primary">Plus d'infos sur {{author.fullName}}</a>
                   </div>
+                  </div>
+
+                  <div class="alert alert-light ">
+                     <h2 class="alert-heading">Votre avis compte</h2>
+                     {% if date() > date(booking.endDate)  %}
+
+                        {{ form_start(form) }}
+
+                        {{ form_widget(form)}}
+
+                        <button type="submit" class="btn btn-primary">Confirmer votre commentaire</button>
+
+                        {{ form_end(form) }}                     
+                        
+                     {% else %}
+                        <p>Vous ne pourrez pas noter cette annonce tant que votre voyage ne sera pas fait</p>
+                     {% endif %}
+                     
                </div>
             </div>
          </div>
