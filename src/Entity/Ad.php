@@ -94,6 +94,19 @@ class Ad
         $this->bookings = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
+    
+    /**
+     * Permet de récupérer le commentaire d'un auteur par rapport à une annonce
+     */
+    public function getCommentFromAuthor(User $author){
+        foreach ($this->comments as $comment) {
+            if ($comment->getAuthor() === $author) {
+                return $comment;
+            }
+        }
+
+        return null;
+    }
 
     public function getAvgRatings(){
         // calculer la somme des notations

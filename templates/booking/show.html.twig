@@ -65,14 +65,22 @@
                   <div class="alert alert-light ">
                      <h2 class="alert-heading">Votre avis compte</h2>
                      {% if date() > date(booking.endDate)  %}
+                        {% set comment = booking.ad.commentFromAuthor(app.user) %}
 
-                        {{ form_start(form) }}
+                        {% if comment is not null %}
+                           <blockquote>{{comment.content}}</blockquote>
+                           <strong>Note:</strong> {% include "partials/rating.html.twig" with {"rating": comment.rating} %}
+                        {% else %}
+                                                   
+                           {{ form_start(form) }}
 
-                        {{ form_widget(form)}}
+                           {{ form_widget(form)}}
 
-                        <button type="submit" class="btn btn-primary">Confirmer votre commentaire</button>
+                           <button type="submit" class="btn btn-primary">Confirmer votre commentaire</button>
 
-                        {{ form_end(form) }}                     
+                           {{ form_end(form) }}  
+                        {% endif %}
+                   
                         
                      {% else %}
                         <p>Vous ne pourrez pas noter cette annonce tant que votre voyage ne sera pas fait</p>
