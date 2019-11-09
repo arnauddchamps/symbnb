@@ -13,6 +13,7 @@ class AdminAdController extends AbstractController
      */
     public function index(AdRepository $repo)
     {
+        
         return $this->render('admin/ad/index.html.twig', [
             'ads' => $repo->findAll(),
         ]);
