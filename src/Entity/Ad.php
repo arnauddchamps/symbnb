@@ -95,6 +95,18 @@ class Ad
         $this->comments = new ArrayCollection();
     }
 
+    public function getAvgRatings(){
+        // calculer la somme des notations
+        $sum = array_reduce($this->comments->toArray(), function($total, $comment) {
+            return $total + $comment->getRating();
+        });
+
+        // get moyenne
+        if(count($this->comments) > 0) return$moyenne = $sum / count($this->comments);
+        
+        return 0;
+    }
+
     /**
      * Permet d'initialiser le slug !
      * 
