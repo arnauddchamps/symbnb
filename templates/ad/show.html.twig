@@ -64,6 +64,16 @@
                      {{comment.content}}
                   </blockquote>
                   <strong>Note donnée par {{comment.author.fullname}} : </strong>{{comment.rating}}
+                  <span class="rating">
+                     {% for i in 1..5 %}
+                        {% if i <= comment.rating %}
+                           <i class="fas fa-star"></i>    
+                        {% else %}
+                           <i class="far fa-star"></i>                  
+                        {% endif %}
+                     {% endfor %}
+                  </span>
+
                </div>
             {% endfor %}
          {% else %}
