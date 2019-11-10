@@ -28,7 +28,7 @@
                 <td class="text-center">{{ad.bookings|length}}</td>
                 <td class="text-center">{{ad.avgRatings}}</td>
                 <td>
-                    <a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    <a href="{{path('admin_ads_edit', {"id" : ad.id})}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                     <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                 </td>
 
