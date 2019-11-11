@@ -60,22 +60,14 @@ class AdminCommentController extends AbstractController
      */
     public function delete(Comment $comment, ObjectManager $manager){
 
-        // if(count($ad->getBookings()) > 0){
-        //     $this->addFlash(
-        //         "warning",
-        //         "Vous ne pouvez pas supprimre l'annonce car elle possede déjà des réservations"
-        //     );
-        // } else {
-            $manager->remove($comment);
-            $manager->flush();
-    
-            $this->addFlash(
-                'success',
-                "Le commentaire a bien été supprimé"
-            );
-        // }
+        $manager->remove($comment);
+        $manager->flush();
 
-
+        $this->addFlash(
+            'success',
+            "Le commentaire a bien été supprimé"
+        );
+        
         return $this->redirectToRoute('admin_comments_index');
     }
 }
