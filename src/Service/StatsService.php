@@ -63,9 +63,9 @@ class StatsService {
          GROUP BY a
          ORDER BY note ASC
          '
-     )->setMaxResults(5)
-     ->getResult()
-     ;
+      )->setMaxResults(5)
+      ->getResult()
+      ;
 
      return $worstAds;
 
