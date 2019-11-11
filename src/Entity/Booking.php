@@ -62,7 +62,8 @@ class Booking
     /**
      * Callback appelé à chaque fois que lon créé une résa
      * 
-     * @ORM\PrePersist()
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
      */
     public function prePersist() {
         if(empty($this->createdAt)){

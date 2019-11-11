@@ -106,7 +106,7 @@ class AppFixtures extends Fixture
                     $booking = new Booking();
 
                     $createdAt = $faker->dateTimeBetween('-6 months');
-                    $startDate = $faker->dateTimeBetween('-3 monts');
+                    $startDate = $faker->dateTimeBetween('-3 months');
 
                     $duration = mt_rand(3, 10);
 
