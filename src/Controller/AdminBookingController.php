@@ -20,7 +20,8 @@ class AdminBookingController extends AbstractController
     {
         $pagination->setEntityClass(Booking::class)
                     ->setPage($page)
-                    ;
+                   ;
+          
                 
         return $this->render('admin/booking/index.html.twig', [
             "pagination" => $pagination

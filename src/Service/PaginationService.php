@@ -2,7 +2,9 @@
 
 namespace App\Service;
 
+use Twig\Environment;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class PaginationService {
    
@@ -11,10 +13,38 @@ class PaginationService {
    private $currentPage = 1;
 
    private $manager;
+   private $route;
 
-   public function __construct(ObjectManager $manager)
+
+
+
+   public function __construct(ObjectManager $manager, Environment $twig, RequestStack $request)
    {
+      $this->route = $request->getCurrentRequest()->attributes->get('_route');
       $this->manager = $manager;
+      $this->twig = $twig;
+   }
+
+
+   public function setRoute($route)
+   {
+      $this->route = $route;
+
+      return $this;
+   }
+
+   public function getRoute()
+   {
+      return $this->route;
+   }
+   
+   public function render()
+   {
+      $this->twig->display('admin/partials/pagination.html.twig', [
+         'page' => $this->currentPage,
+         'pages' => $this->getPages(),
+         'route' => $this->route
+      ]);
    }
 
    public function getPages(){
